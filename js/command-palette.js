@@ -129,14 +129,19 @@
 
   function updateActiveSection() {
     rafId = null;
-    var scrollY = window.scrollY + window.innerHeight * 0.35;
     var current = '';
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60;
 
-    sections.forEach(function (section) {
-      if (section.offsetTop <= scrollY) {
-        current = section.getAttribute('id');
-      }
-    });
+    if (atBottom) {
+      current = sections[sections.length - 1].getAttribute('id');
+    } else {
+      sections.forEach(function (section) {
+        var rect = section.getBoundingClientRect();
+        if (rect.top <= 100) {
+          current = section.getAttribute('id');
+        }
+      });
+    }
 
     // Update handle text
     if (current && current !== 'hero') {

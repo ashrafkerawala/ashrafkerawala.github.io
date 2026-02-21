@@ -56,20 +56,24 @@
   var sections = document.querySelectorAll('section[id]');
 
   function updateActiveLink() {
-    var scrollY = window.scrollY + 100;
+    var current = '';
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60;
 
-    sections.forEach(function (section) {
-      var top = section.offsetTop;
-      var height = section.offsetHeight;
-      var id = section.getAttribute('id');
+    if (atBottom) {
+      current = sections[sections.length - 1].getAttribute('id');
+    } else {
+      sections.forEach(function (section) {
+        var rect = section.getBoundingClientRect();
+        if (rect.top <= 100) {
+          current = section.getAttribute('id');
+        }
+      });
+    }
 
-      if (scrollY >= top && scrollY < top + height) {
-        links.forEach(function (link) {
-          link.classList.remove('is-active');
-          if (link.getAttribute('href') === '#' + id) {
-            link.classList.add('is-active');
-          }
-        });
+    links.forEach(function (link) {
+      link.classList.remove('is-active');
+      if (current && link.getAttribute('href') === '#' + current) {
+        link.classList.add('is-active');
       }
     });
   }

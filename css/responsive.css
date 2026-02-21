@@ -354,12 +354,12 @@
 
   /* Timeline: reduce left rail indent */
   .timeline__track {
-    padding-left: var(--space-sm);
+    padding-left: 1.5rem;
   }
 
   .timeline__group:nth-child(odd) .timeline__marker,
   .timeline__group:nth-child(even) .timeline__marker {
-    left: calc(-1rem - 10px);
+    left: calc(-1.5rem - 10px);
   }
 
   /* Contact: tighter gap on single column */
@@ -425,12 +425,12 @@
 
   /* Timeline: minimal indent */
   .timeline__track {
-    padding-left: var(--space-xs);
+    padding-left: 1.25rem;
   }
 
   .timeline__group:nth-child(odd) .timeline__marker,
   .timeline__group:nth-child(even) .timeline__marker {
-    left: calc(-0.5rem - 10px);
+    left: calc(-1.25rem - 10px);
   }
 
   /* Contact: minimal gap */
@@ -523,12 +523,12 @@
 
   /* Timeline: line only, minimal indent */
   .timeline__track {
-    padding-left: 0.75rem;
+    padding-left: 1rem;
   }
 
   .timeline__group:nth-child(odd) .timeline__marker,
   .timeline__group:nth-child(even) .timeline__marker {
-    left: calc(-0.75rem - 10px);
+    left: calc(-1rem - 10px);
   }
 
   /* Timeline company: tighter clamp for very narrow screens */

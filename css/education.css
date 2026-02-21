@@ -1,0 +1,91 @@
+.education__heading {
+  font-size: var(--fs-section);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-dark);
+}
+
+.education__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Card: dark navy block on cream — high contrast credential stamp */
+.education__card {
+  position: relative;
+  background-color: var(--color-primary-bg);
+  border: 3px solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
+  padding: var(--space-md) var(--space-md) var(--space-md) calc(var(--space-md) + 6px);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Lime left accent bar — mirrors timeline's visual language */
+.education__card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-color: var(--color-accent-green);
+}
+
+/* Ghost abbreviation bleeds out bottom-right as decorative typography */
+.education__card-ghost {
+  position: absolute;
+  right: -0.05em;
+  bottom: -0.15em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 5.5rem;
+  color: rgba(193, 255, 114, 0.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.education__badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-tiny);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-green);
+  margin-bottom: var(--space-sm);
+}
+
+.education__degree {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-xs);
+  line-height: 1.2;
+}
+
+.education__institution {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: rgba(240, 236, 227, 0.6);
+  line-height: 1.6;
+}
+
+@media (hover: hover) {
+  .education__card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-brutal-lg);
+  }
+}
+
+@media (max-width: 640px) {
+  .education__grid {
+    grid-template-columns: 1fr;
+  }
+}
