@@ -1,0 +1,575 @@
+/* ≥1440px — Large / wide-screen displays */
+@media (min-width: 1440px) {
+  /* Hero: scale name and subtitle for large displays */
+  .hero__name {
+    font-size: clamp(5.5rem, 5.5vw, 7.5rem);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(1.2rem, 1.2vw, 1.6rem);
+  }
+}
+
+/* ≤1440px — Standard desktop (between tablet and wide screen) */
+@media (max-width: 1440px) {
+  .hero__name {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  }
+}
+
+/* ≤1024px — Narrower grids, reduced sizes */
+@media (max-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Nav: tighten link spacing on tablet */
+  .nav__links {
+    gap: var(--space-sm);
+  }
+
+  /* Hero: prevent typewriter element growing wider than its grid column */
+  .hero__typewriter {
+    max-width: 100%;
+  }
+
+  /* Hero: bridge name size between desktop (5.1rem) and mobile (3rem) */
+  .hero__name {
+    font-size: clamp(3rem, 7vw, 5rem);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  }
+}
+
+/* ≤768px — Single columns, hamburger, no custom cursor */
+@media (max-width: 768px) {
+  /* Hero: cut the massive 8rem+6rem padding down to mobile-appropriate values */
+  .hero {
+    padding: calc(70px + var(--space-md)) 0 var(--space-md);
+  }
+
+  /* Hero: reduce vertical gap in the now-single-column grid */
+  .hero__grid {
+    gap: var(--space-md);
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero__cta {
+    justify-content: center;
+  }
+
+  .hero__avatar-wrap {
+    order: -1;
+  }
+
+  .hero__watermark {
+    display: none;
+  }
+
+  .hero__label {
+    display: inline-block;
+    border-left: none;
+    padding-left: 0;
+    border-bottom: 4px solid var(--color-accent-green);
+    padding-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Old mobile nav — hidden in favour of command palette */
+  .nav__hamburger { display: none !important; }
+  .nav__links { display: none !important; }
+  .nav__overlay { display: none !important; }
+  .cmd-handle { display: flex; }
+  .cmd-palette { display: flex; }
+
+  /* Hero name — smaller on mobile so surname fits on one line */
+  .hero__name { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .hero__cta .btn { flex: 1 1 auto; min-width: 140px; text-align: center; }
+
+  /* Footer padding for bottom handle */
+  .footer { padding-bottom: calc(48px + env(safe-area-inset-bottom) + var(--space-md)); }
+
+  /* About */
+  .about__heading {
+    margin-left: 0;
+  }
+
+  /* Section headings: reduce large margin-bottom (4–6rem → 2.5rem) */
+  .about__heading,
+  .skills__heading,
+  .timeline__heading,
+  .projects__heading,
+  .contact__heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reset explicit column placement for single-column mobile */
+  .about__stats {
+    grid-column: auto;
+    grid-row: auto;
+    flex-direction: row;
+    order: 1;
+  }
+
+  .about__content {
+    grid-column: auto;
+    grid-row: auto;
+    margin-left: 0;
+  }
+
+  .about__more-btn {
+    display: inline-block;
+  }
+
+  .skills__more-btn {
+    display: inline-block;
+  }
+
+  /* Primary cloud: 2-col on mobile — big skills full-width, small skills pair up */
+  .skills__cloud--primary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero__text {
+    text-align: center;
+  }
+
+  .hero__subtitle {
+    text-align: center;
+  }
+
+  .about__content::before {
+    right: 0;
+  }
+
+  .stat {
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* Timeline */
+  .timeline__track {
+    padding-left: var(--space-md);
+  }
+
+  .timeline__line {
+    left: 0;
+    transform: none;
+  }
+
+  .timeline__group {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .timeline__group:nth-child(odd),
+  .timeline__group:nth-child(even) {
+    transform: translateY(20px);
+  }
+
+  .timeline__group.is-visible {
+    transform: translateY(0);
+  }
+
+  .timeline__group:nth-child(odd) .timeline__marker,
+  .timeline__group:nth-child(even) .timeline__marker {
+    left: calc(-2rem - 10px);
+    right: auto;
+  }
+
+  .timeline__company-header {
+    padding: var(--space-sm);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .timeline__company {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+
+  .timeline__company-header::before {
+    font-size: clamp(3rem, 12vw, 5rem);
+  }
+
+  /* Collapse two-column role cards to single column */
+  .timeline__item {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline__role {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding: var(--space-sm) 0 var(--space-xs) 0;
+  }
+
+  .timeline__date {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .timeline__achievements {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    padding: var(--space-xs) 0 var(--space-sm) 0;
+    border-left: none;
+    border-top: 1px solid rgba(15, 15, 15, 0.12);
+  }
+
+  /* Projects */
+  .projects__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  }
+
+  /* Contact */
+  .contact__heading {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .education__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .education__list {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  /* Sections: reduce padding from 6rem to 4rem on mobile/tablet */
+  .section {
+    padding: var(--space-lg) 0;
+  }
+
+  /* Angled section dividers: sync their padding-top with the new section padding */
+  .section--dark + .section--light,
+  .section--light + .section--dark {
+    padding-top: calc(var(--space-lg) + 3vw);
+  }
+
+  /* Education list items: reduce horizontal padding on mobile */
+  .education__list li {
+    padding: var(--space-sm);
+  }
+
+  /* Custom cursor off */
+  .custom-cursor {
+    display: none !important;
+  }
+
+  /* Avatar scaling */
+  .hero__avatar {
+    transform: scale(0.85);
+    transform-origin: center top;
+  }
+
+  /* Typewriter wrap fix */
+  .hero__typewriter {
+    white-space: normal;
+    overflow: visible;
+    width: auto;
+    border-right: none;
+    animation: none;
+  }
+
+  /* About heading underline overflow fix */
+  .about__heading::after {
+    width: 100%;
+  }
+
+  /* Reduced shadows */
+  :root {
+    --shadow-brutal: 5px 5px 0 var(--color-border);
+    --shadow-brutal-lg: 8px 8px 0 var(--color-border);
+  }
+}
+
+/* ≤640px — Intermediate breakpoint */
+@media (max-width: 640px) {
+  .about__heading {
+    margin-left: 0;
+  }
+
+  /* Stack stats to single column at ≤640px */
+  .about__stats {
+    flex-direction: column;
+  }
+
+  .stat {
+    width: 100%;
+  }
+
+  .skills__cloud {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skill--primary {
+    grid-column: span 1;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero: step down spacing */
+  .hero {
+    padding: calc(65px + var(--space-sm)) 0 var(--space-sm);
+  }
+
+  .hero__grid {
+    gap: var(--space-sm);
+  }
+
+  /* Section padding step down */
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section--dark + .section--light,
+  .section--light + .section--dark {
+    padding-top: calc(3.5rem + 3vw);
+  }
+
+  /* Timeline: reduce left rail indent */
+  .timeline__track {
+    padding-left: var(--space-sm);
+  }
+
+  .timeline__group:nth-child(odd) .timeline__marker,
+  .timeline__group:nth-child(even) .timeline__marker {
+    left: calc(-1rem - 10px);
+  }
+
+  /* Contact: tighter gap on single column */
+  .contact__grid {
+    gap: var(--space-md);
+  }
+
+  /* Font sizes: step down section headings and key display text */
+  :root {
+    --fs-section: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .hero__name {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .contact__heading {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+
+  .stat__number {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+/* ≤480px — Smallest screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  /* Section padding */
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section--dark + .section--light,
+  .section--light + .section--dark {
+    padding-top: calc(3rem + 3vw);
+  }
+
+  /* Section headings: reduce further (2.5rem → 2rem) */
+  .about__heading,
+  .skills__heading,
+  .timeline__heading,
+  .projects__heading,
+  .contact__heading {
+    margin-bottom: var(--space-md);
+  }
+
+  /* Hero: minimal top/bottom spacing */
+  .hero {
+    padding: calc(60px + var(--space-xs)) 0 var(--space-xs);
+  }
+
+  .hero__grid {
+    gap: var(--space-xs);
+  }
+
+  .stat {
+    padding: var(--space-sm);
+  }
+
+  /* Timeline: minimal indent */
+  .timeline__track {
+    padding-left: var(--space-xs);
+  }
+
+  .timeline__group:nth-child(odd) .timeline__marker,
+  .timeline__group:nth-child(even) .timeline__marker {
+    left: calc(-0.5rem - 10px);
+  }
+
+  /* Contact: minimal gap */
+  .contact__grid {
+    gap: var(--space-sm);
+  }
+
+  .contact__link {
+    font-size: var(--fs-body);
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+
+  .hero__cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Avatar scaling for smallest screens */
+  .hero__avatar {
+    transform: scale(0.75);
+    transform-origin: center top;
+  }
+
+  /* Contact icon size fix */
+  .icon-email::before,
+  .icon-phone::before,
+  .icon-github::before,
+  .icon-linkedin::before {
+    font-size: 1.2rem;
+  }
+
+  /* Shadows: even flatter */
+  :root {
+    --shadow-brutal: 3px 3px 0 var(--color-border);
+    --shadow-brutal-sm: 2px 2px 0 var(--color-border);
+    --shadow-brutal-lg: 5px 5px 0 var(--color-border);
+
+    /* Font sizes: section headings and display text shrink further */
+    --fs-section: clamp(1.5rem, 7vw, 2rem);
+    --fs-sub: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .hero__name {
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+  }
+
+  .contact__heading {
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+  }
+
+  .stat__number {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+  }
+}
+
+/* ≤360px — Very small screens (320px handsets) */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  /* Section headings: minimum readable spacing */
+  .about__heading,
+  .skills__heading,
+  .timeline__heading,
+  .projects__heading,
+  .contact__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Hero: bare minimum spacing */
+  .hero {
+    padding: calc(60px + 0.25rem) 0 0.25rem;
+  }
+
+  .hero__grid {
+    gap: var(--space-xs);
+  }
+
+  /* Section: compact but breathable */
+  .section {
+    padding: var(--space-md) 0;
+  }
+
+  .section--dark + .section--light,
+  .section--light + .section--dark {
+    padding-top: calc(var(--space-md) + 2vw);
+  }
+
+  /* Timeline: line only, minimal indent */
+  .timeline__track {
+    padding-left: 0.75rem;
+  }
+
+  .timeline__group:nth-child(odd) .timeline__marker,
+  .timeline__group:nth-child(even) .timeline__marker {
+    left: calc(-0.75rem - 10px);
+  }
+
+  /* Timeline company: tighter clamp for very narrow screens */
+  .timeline__company {
+    font-size: clamp(0.95rem, 4vw, 1.2rem);
+  }
+
+  /* Contact: ensure status card doesn't crowd at 320px */
+  .contact__status {
+    padding: var(--space-sm);
+    box-shadow: 4px 4px 0 var(--color-primary-bg);
+  }
+
+  .contact__status-text {
+    font-size: 1rem;
+  }
+
+  .contact__grid {
+    gap: var(--space-xs);
+  }
+
+  /* Skills extra: reduce max-height calculation pressure */
+  .skills__extra.is-expanded {
+    max-height: 1200px;
+  }
+
+  /* Font sizes: tightest values for 320px handsets */
+  :root {
+    --fs-section: clamp(1.3rem, 7.5vw, 1.6rem);
+    --fs-sub: clamp(0.9rem, 3.5vw, 1.1rem);
+  }
+
+  .hero__name {
+    font-size: clamp(1.3rem, 7.5vw, 1.6rem);
+  }
+
+  .contact__heading {
+    font-size: clamp(1.4rem, 7.5vw, 1.8rem);
+  }
+
+  .stat__number {
+    font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+  }
+}

@@ -1,0 +1,102 @@
+/* Brutalist Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 2rem;
+  border: var(--border-thick);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-brutal-sm);
+  position: relative;
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--color-border);
+}
+
+.btn--primary {
+  background-color: var(--color-accent-coral);
+  color: var(--color-primary-bg);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-text-light);
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-brutal);
+  }
+
+  .btn:hover:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 var(--color-border);
+  }
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-tiny);
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border: 3px solid var(--color-border);
+  letter-spacing: 0.03em;
+}
+
+.tag--green {
+  background-color: var(--color-accent-green);
+  color: var(--color-text-dark);
+}
+
+.tag--bone {
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text-dark);
+}
+
+.tag--violet {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-dark);
+}
+
+/* Cards */
+.card {
+  border: var(--border-thick);
+  box-shadow: var(--shadow-brutal);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-brutal-lg);
+  }
+
+  .stat:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent-coral);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .tag:hover {
+    transform: rotate(-2deg) scale(1.05);
+    transition: transform var(--transition-fast);
+  }
+}
+
+.stat {
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tag {
+  transition: transform var(--transition-fast);
+}

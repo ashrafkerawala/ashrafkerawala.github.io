@@ -1,0 +1,81 @@
+.projects__heading {
+  font-size: var(--fs-section);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-md);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text-dark);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-brutal);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--transition-slow), transform var(--transition-slow), box-shadow var(--transition-fast);
+}
+
+@media (hover: hover) {
+  .project-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-brutal-lg);
+  }
+}
+
+.project-card__bar {
+  height: 8px;
+  width: 100%;
+}
+
+.project-card__bar--coral { background-color: var(--color-accent-coral); }
+.project-card__bar--green { background-color: var(--color-accent-green); }
+.project-card__bar--violet { background-color: var(--color-accent-violet); }
+.project-card__bar--dark { background-color: var(--color-text-dark); }
+.project-card__bar--bone { background-color: var(--color-secondary-bg); border-bottom: 3px solid var(--color-border); }
+
+.project-card__content {
+  padding: var(--space-md);
+}
+
+.project-card__company {
+  font-family: var(--font-body);
+  font-size: var(--fs-tiny);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  margin-bottom: 0.3rem;
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.project-card__desc {
+  font-size: var(--fs-small);
+  margin-bottom: var(--space-sm);
+  line-height: 1.6;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}

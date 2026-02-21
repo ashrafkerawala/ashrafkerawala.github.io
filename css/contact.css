@@ -1,0 +1,190 @@
+.contact {
+  position: relative;
+}
+
+.contact__heading {
+  font-size: var(--fs-hero);
+  margin-bottom: var(--space-lg);
+  color: var(--color-primary-bg);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-sub);
+  color: var(--color-primary-bg);
+  text-transform: uppercase;
+  padding: var(--space-sm) 0;
+  border-bottom: 3px solid var(--color-primary-bg);
+  transition: transform var(--transition-fast), padding-left var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+@media (hover: hover) {
+  .contact__link:hover {
+    padding-left: var(--space-sm);
+    background-color: var(--color-primary-bg);
+    color: var(--color-accent-coral);
+  }
+}
+
+/* Availability status card */
+.contact__status {
+  border: 6px solid var(--color-primary-bg);
+  padding: var(--space-md);
+  box-shadow: 8px 8px 0 var(--color-primary-bg);
+  background-color: var(--color-primary-bg);
+  color: var(--color-text-light);
+  position: relative;
+  align-self: center;
+}
+
+.contact__status-indicator {
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-accent-green);
+  border-radius: 50%;
+  margin-bottom: var(--space-sm);
+  position: relative;
+  display: inline-block;
+}
+
+.contact__status-indicator::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background-color: var(--color-accent-green);
+  opacity: 0.4;
+  animation: marker-pulse 2s ease-in-out infinite;
+}
+
+.contact__status-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+  color: var(--color-accent-green);
+}
+
+.contact__status-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* CSS-drawn icons */
+.icon-email,
+.icon-phone,
+.icon-github,
+.icon-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--color-primary-bg);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.icon-email::before {
+  content: '@';
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.icon-phone::before {
+  content: '#';
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.icon-github::before {
+  content: '>';
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.icon-linkedin::before {
+  content: 'in';
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Education mini section */
+.education {
+  padding: var(--space-lg) 0;
+  border-top: var(--border-thick);
+}
+
+.education__inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.education__heading {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-accent-green);
+  white-space: nowrap;
+  padding-top: 0.3rem;
+}
+
+.education__list {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  list-style: none;
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.education__list li {
+  border: 3px solid var(--color-text-light);
+  padding: var(--space-sm) var(--space-md);
+  opacity: 0.7;
+}
+
+/* Footer */
+.footer {
+  padding: var(--space-md) 0;
+  padding-bottom: max(var(--space-md), env(safe-area-inset-bottom));
+  text-align: center;
+  border-top: var(--border-thick);
+  font-family: var(--font-body);
+  font-size: var(--fs-tiny);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-light);
+  opacity: 0.6;
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ashraf Kerawala — Software Engineer</title>
+  <meta name="description" content="Ashraf Kerawala — Software Engineer with 6+ years of front-end experience. React, Redux, JavaScript specialist.">
+  <meta property="og:title" content="Ashraf Kerawala — Software Engineer">
+  <meta property="og:description" content="Front-end engineer with 6+ years building scalable web applications at Session AI and Eduonix.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/skills.css">
+  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/command-palette.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#hero" class="nav__wordmark">ASHRAF</a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav__overlay" id="nav-overlay"></div>
+
+  </nav>
+
+  <!-- Command Palette (mobile) — outside nav to avoid backdrop-filter containing block -->
+  <div class="cmd-palette" id="cmd-palette" role="dialog" aria-label="Navigation menu" aria-hidden="true">
+    <div class="cmd-palette__scanlines" aria-hidden="true"></div>
+    <div class="cmd-palette__content">
+      <ul class="cmd-palette__list" role="menu">
+        <li role="none"><a href="#about" class="cmd-palette__link" role="menuitem" data-section="about"><span class="cmd-palette__prompt" aria-hidden="true">&gt; </span>cd /about</a></li>
+        <li role="none"><a href="#skills" class="cmd-palette__link" role="menuitem" data-section="skills"><span class="cmd-palette__prompt" aria-hidden="true">&gt; </span>cd /skills</a></li>
+        <li role="none"><a href="#experience" class="cmd-palette__link" role="menuitem" data-section="experience"><span class="cmd-palette__prompt" aria-hidden="true">&gt; </span>cd /experience</a></li>
+        <li role="none"><a href="#projects" class="cmd-palette__link" role="menuitem" data-section="projects"><span class="cmd-palette__prompt" aria-hidden="true">&gt; </span>cd /projects</a></li>
+        <li role="none"><a href="#contact" class="cmd-palette__link" role="menuitem" data-section="contact"><span class="cmd-palette__prompt" aria-hidden="true">&gt; </span>cd /contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <button class="cmd-handle" id="cmd-handle" aria-label="Open navigation" aria-expanded="false" aria-controls="cmd-palette">
+    <span class="cmd-handle__text" id="cmd-handle-text">&gt; _</span>
+    <span class="cmd-handle__cursor" aria-hidden="true"></span>
+  </button>
+
+  <!-- Hero -->
+  <section class="hero section section--dark" id="hero">
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <p class="hero__label">Software Engineer &middot; 6+ Years</p>
+        <h1 class="hero__name" data-text="ASHRAF KERAWALA">ASHRAF KERAWALA</h1>
+        <div class="hero__subtitle">
+          <span class="hero__typewriter">Now shipping features faster with AI in the loop.</span>
+        </div>
+        <div class="hero__cta">
+          <a href="#projects" class="btn btn--primary">View Work</a>
+          <a href="#contact" class="btn btn--outline">Contact</a>
+        </div>
+      </div>
+      <div class="hero__avatar-wrap" id="avatar-wrap">
+        <div class="hero__avatar" id="avatar">
+          <div class="avatar__hair"></div>
+          <div class="avatar__head"></div>
+          <div class="avatar__glasses">
+            <div class="avatar__glasses-bridge"></div>
+          </div>
+          <div class="avatar__eye avatar__eye--left"></div>
+          <div class="avatar__eye avatar__eye--right"></div>
+          <div class="avatar__mouth"></div>
+          <div class="avatar__collar"></div>
+          <div class="avatar__body"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__watermark" aria-hidden="true">DEV</div>
+    <div class="hero__shape hero__shape--1" aria-hidden="true"></div>
+    <div class="hero__shape hero__shape--2" aria-hidden="true"></div>
+    <div class="hero__shape hero__shape--3" aria-hidden="true"></div>
+  </section>
+
+  <!-- About -->
+  <section class="about section section--light" id="about">
+    <div class="container">
+      <h2 class="about__heading reveal reveal--snap">ABOUT</h2>
+      <div class="about__grid">
+        <div class="about__stats">
+          <div class="stat reveal">
+            <div class="stat__number" data-target="6">0</div>
+            <div class="stat__label">Years Experience</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat__number" data-target="2">0</div>
+            <div class="stat__label">Companies</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat__number" data-target="10">0</div>
+            <div class="stat__label">Major Projects</div>
+          </div>
+        </div>
+        <div class="about__content reveal">
+          <p>
+            I'm a Software Engineer with over 6 years of hands-on experience building high-performance,
+            user-facing web applications. My core strength lies in translating complex product requirements
+            into clean, maintainable front-end architectures.
+          </p>
+          <div class="about__extra" id="about-extra" aria-hidden="true">
+            <p>
+              At Session AI, I led the migration of a legacy codebase to React, re-architected
+              state management with Redux, and built a real-time PUB/SUB communication framework. At Eduonix,
+              I engineered gamified learning platforms and a scalable mailing engine serving thousands of students.
+            </p>
+            <p>
+              I care deeply about code quality, developer experience, and building systems that scale
+              without accumulating tech debt.
+            </p>
+          </div>
+          <button class="about__more-btn" id="about-more-btn" aria-expanded="false" aria-controls="about-extra">
+            &gt; read more
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills section section--dark" id="skills">
+    <div class="container">
+      <h2 class="skills__heading reveal reveal--snap">SKILLS</h2>
+      <!-- Primary cloud: 6-col fixed grid — big skills (span 2) + small fillers (span 1) -->
+      <div class="skills__cloud skills__cloud--primary">
+        <!-- Row 1: React + Redux + HTML5 + CSS3 -->
+        <div class="skill skill--primary" style="--i: 0">React</div>
+        <div class="skill skill--primary" style="--i: 1">Redux</div>
+        <div class="skill skill--secondary" style="--i: 2">HTML5</div>
+        <div class="skill skill--secondary" style="--i: 3">CSS3</div>
+        <!-- Row 2: JavaScript + TypeScript + AngularJS + Node.js -->
+        <div class="skill skill--primary" style="--i: 4">JavaScript</div>
+        <div class="skill skill--primary" style="--i: 5">TypeScript</div>
+        <div class="skill skill--secondary" style="--i: 6">AngularJS</div>
+        <div class="skill skill--secondary" style="--i: 7">Node.js</div>
+        <!-- Row 3: Responsive Design + Agentic AI Coding + REST APIs + jQuery -->
+        <div class="skill skill--primary" style="--i: 8">Responsive Design</div>
+        <div class="skill skill--primary skill--ai-large" style="--i: 9">Agentic AI Coding</div>
+        <div class="skill skill--secondary" style="--i: 10">REST APIs</div>
+        <div class="skill skill--secondary" style="--i: 11">jQuery</div>
+      </div>
+      <!-- Extra skills: collapsed by default -->
+      <div class="skills__extra" id="skills-extra" aria-hidden="true">
+        <div class="skills__cloud">
+          <div class="skill skill--secondary" style="--i: 12">Bootstrap</div>
+          <div class="skill skill--secondary" style="--i: 13">PHP</div>
+          <div class="skill skill--secondary" style="--i: 14">CodeIgniter</div>
+          <div class="skill skill--tool" style="--i: 15">Git</div>
+          <div class="skill skill--tool" style="--i: 16">Webpack</div>
+          <div class="skill skill--tool" style="--i: 17">Jest</div>
+          <div class="skill skill--tool" style="--i: 18">Docker</div>
+          <div class="skill skill--tool" style="--i: 19">AWS</div>
+          <div class="skill skill--tool" style="--i: 20">Jira</div>
+          <div class="skill skill--tool" style="--i: 21">CI/CD</div>
+          <div class="skill skill--tool" style="--i: 22">Figma</div>
+          <div class="skill skill--ai" style="--i: 23">Claude</div>
+          <div class="skill skill--ai" style="--i: 24">Claude Code</div>
+          <div class="skill skill--ai" style="--i: 25">Codex</div>
+          <div class="skill skill--ai" style="--i: 26">ChatGPT</div>
+        </div>
+      </div>
+      <button class="skills__more-btn" id="skills-more-btn" aria-expanded="false" aria-controls="skills-extra">
+        &gt; view more skills
+      </button>
+    </div>
+  </section>
+
+  <!-- Work Timeline -->
+  <section class="timeline section section--light" id="experience">
+    <div class="container">
+      <h2 class="timeline__heading reveal reveal--snap">EXPERIENCE</h2>
+      <div class="timeline__track">
+        <div class="timeline__line" id="timeline-line"></div>
+
+        <div class="timeline__group">
+          <div class="timeline__marker"></div>
+          <div class="timeline__company-header">
+            <div class="timeline__company">Session AI</div>
+            <div class="timeline__tenure">Jul 2022 – Present</div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__role">Software Engineer</div>
+            <div class="timeline__date">Apr 2024 – Present</div>
+            <ul class="timeline__achievements" id="ach-se3">
+              <li>Led migration of legacy codebase to React, improving load times by 40%</li>
+              <li>Re-architected state management using Redux with optimized selector patterns</li>
+              <li class="timeline__achievement--extra">Built real-time PUB/SUB communication framework for cross-component messaging</li>
+              <li class="timeline__achievement--extra">Designed and implemented WYSIWYG editor for campaign content creation</li>
+            </ul>
+            <button class="timeline__more-btn" data-target="ach-se3" aria-expanded="false">&gt; view more</button>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__role">Software Developer UI</div>
+            <div class="timeline__date">Jul 2022 – Apr 2024</div>
+            <ul class="timeline__achievements" id="ach-sdui">
+              <li>Built reusable component library reducing dev time by 30% across teams</li>
+              <li>Implemented automated testing pipeline with Jest, achieving 85% coverage</li>
+              <li class="timeline__achievement--extra">Optimized bundle size by 45% through code splitting and lazy loading</li>
+            </ul>
+            <button class="timeline__more-btn" data-target="ach-sdui" aria-expanded="false">&gt; view more</button>
+          </div>
+        </div>
+
+        <div class="timeline__group">
+          <div class="timeline__marker"></div>
+          <div class="timeline__company-header">
+            <div class="timeline__company">Eduonix Learning Solutions</div>
+            <div class="timeline__tenure">Nov 2019 – Jul 2022</div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__role">Software Developer</div>
+            <div class="timeline__date">Apr 2021 – Jul 2022</div>
+            <ul class="timeline__achievements" id="ach-sd">
+              <li>Engineered gamified learning platform with progress tracking and achievements</li>
+              <li>Built interactive course player with video sync and note-taking features</li>
+              <li class="timeline__achievement--extra">Developed mailing engine supporting HTML template rendering at scale</li>
+            </ul>
+            <button class="timeline__more-btn" data-target="ach-sd" aria-expanded="false">&gt; view more</button>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__role">Software Developer Trainee</div>
+            <div class="timeline__date">Apr 2020 – Apr 2021</div>
+            <ul class="timeline__achievements">
+              <li>Developed responsive email templates for marketing campaigns</li>
+              <li>Built responsive dashboards for real-time analytics visualization</li>
+            </ul>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__role">Tech Intern</div>
+            <div class="timeline__date">Nov 2019 – Apr 2020</div>
+            <ul class="timeline__achievements">
+              <li>Contributed to API integration layer for third-party service connections</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="projects section section--dark" id="projects">
+    <div class="container">
+      <h2 class="projects__heading reveal reveal--snap">FEATURED PROJECTS</h2>
+      <div class="projects__grid">
+
+        <div class="project-card">
+          <div class="project-card__bar project-card__bar--coral"></div>
+          <div class="project-card__content">
+            <div class="project-card__company">Session AI</div>
+            <h3 class="project-card__title">React Migration</h3>
+            <p class="project-card__desc">
+              Led complete migration of legacy codebase to React. Implemented incremental
+              adoption strategy, component-by-component, while maintaining production stability.
+              Resulted in 40% faster load times and improved developer velocity.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag tag--green">React</span>
+              <span class="tag tag--green">Redux Toolkit Query</span>
+              <span class="tag tag--bone">Node.js</span>
+              <span class="tag tag--violet">Express.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card__bar project-card__bar--green"></div>
+          <div class="project-card__content">
+            <div class="project-card__company">Session AI</div>
+            <h3 class="project-card__title">WYSIWYG Editor</h3>
+            <p class="project-card__desc">
+              Designed and built a custom rich-text editor for campaign content creation.
+              Supports drag-and-drop blocks, real-time preview, and HTML export with
+              template variable interpolation.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag tag--green">JavaScript</span>
+              <span class="tag tag--green">Dojo</span>
+              <span class="tag tag--bone">HTML</span>
+              <span class="tag tag--violet">CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card__bar project-card__bar--violet"></div>
+          <div class="project-card__content">
+            <div class="project-card__company">Session AI</div>
+            <h3 class="project-card__title">PUB/SUB Framework</h3>
+            <p class="project-card__desc">
+              Built a custom event-driven communication framework enabling real-time
+              cross-component messaging. Decoupled tightly-coupled modules and enabled
+              reactive UI updates without prop drilling.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag tag--green">JavaScript</span>
+              <span class="tag tag--bone">Event Architecture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card__bar project-card__bar--dark"></div>
+          <div class="project-card__content">
+            <div class="project-card__company">Eduonix</div>
+            <h3 class="project-card__title">Gamified Learning Platform</h3>
+            <p class="project-card__desc">
+              Engineered interactive learning platform with achievement systems,
+              progress tracking, leaderboards, and reward mechanics. Increased student
+              engagement metrics by 60%.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag tag--green">JavaScript</span>
+              <span class="tag tag--bone">jQuery</span>
+              <span class="tag tag--violet">PHP</span>
+              <span class="tag tag--violet">CodeIgniter</span>
+              <span class="tag tag--violet">REST API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card__bar project-card__bar--coral"></div>
+          <div class="project-card__content">
+            <div class="project-card__company">Eduonix</div>
+            <h3 class="project-card__title">Mailing Engine</h3>
+            <p class="project-card__desc">
+              Developed scalable mailing engine supporting dynamic HTML template rendering.
+              Built template editor with live preview, variable substitution, and
+              batch processing for high-volume campaigns.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag tag--bone">HTML Email</span>
+              <span class="tag tag--green">JavaScript</span>
+              <span class="tag tag--violet">PHP</span>
+              <span class="tag tag--violet">CodeIgniter</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact section section--coral" id="contact">
+    <div class="container">
+      <h2 class="contact__heading reveal reveal--snap">LET'S TALK</h2>
+      <div class="contact__grid">
+        <div class="contact__links">
+          <a href="mailto:ashrafkerawala17@gmail.com" class="contact__link reveal">
+            <span class="icon-email" aria-hidden="true"></span>
+            ashrafkerawala17@gmail.com
+          </a>
+          <a href="https://github.com/ashrafkerawala" class="contact__link reveal" target="_blank" rel="noopener noreferrer">
+            <span class="icon-github" aria-hidden="true"></span>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/ashraf-kerawala" class="contact__link reveal" target="_blank" rel="noopener noreferrer">
+            <span class="icon-linkedin" aria-hidden="true"></span>
+            LinkedIn
+          </a>
+        </div>
+        <div class="contact__status reveal">
+          <div class="contact__status-indicator"></div>
+          <div class="contact__status-text">Available for opportunities</div>
+          <p class="contact__status-desc">Open to full-time roles, contract work, and interesting collaborations. Based in Mumbai, comfortable with remote.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="education section section--dark" id="education">
+    <div class="container">
+      <div class="education__inner">
+        <h3 class="education__heading reveal">Education</h3>
+        <ul class="education__list reveal">
+          <li>BSc Information Technology — S K Somaiya College of Arts, Science and Commerce</li>
+          <li>HSC — K J Somaiya College of Science and Commerce</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      Crafted with ♥ in Mumbai &nbsp;·&nbsp; Ashraf Kerawala &nbsp;·&nbsp; 2026
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scroll-observer.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/avatar.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

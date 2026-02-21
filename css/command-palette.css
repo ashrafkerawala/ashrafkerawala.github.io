@@ -1,0 +1,176 @@
+/* ============================================
+   Command Palette — Mobile Navigation
+   ============================================ */
+
+/* --- Bottom Handle --- */
+.cmd-handle {
+  display: none; /* shown via responsive.css at ≤768px */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-mobile-menu);
+  height: calc(48px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  background: var(--color-primary-bg);
+  border-top: 3px solid var(--color-accent-green);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--color-accent-green);
+  cursor: pointer;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.cmd-handle__text {
+  white-space: nowrap;
+}
+
+.cmd-handle__cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  background: var(--color-accent-green);
+  vertical-align: text-bottom;
+  animation: cmd-blink 1s steps(2, jump-none) infinite;
+}
+
+@keyframes cmd-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Handle state when palette is open */
+.cmd-handle[aria-expanded="true"] {
+  border-top-color: var(--color-accent-coral);
+  color: var(--color-accent-coral);
+}
+
+.cmd-handle[aria-expanded="true"] .cmd-handle__cursor {
+  background: var(--color-accent-coral);
+}
+
+/* --- Full-screen Palette --- */
+.cmd-palette {
+  display: none; /* shown via responsive.css at ≤768px */
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-mobile-menu) - 1);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 26, 46, 0.97);
+  transform: translateY(100%);
+  transition: transform 0.4s steps(6, jump-none);
+  overflow: hidden;
+}
+
+.cmd-palette.is-open {
+  transform: translateY(0);
+}
+
+/* --- Scanline overlay --- */
+.cmd-palette__scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(193, 255, 114, 0.03) 0px,
+    rgba(193, 255, 114, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* Scanline flicker on open */
+.cmd-palette.is-opening .cmd-palette__scanlines {
+  animation: scanline-flicker 0.4s steps(4) forwards;
+}
+
+@keyframes scanline-flicker {
+  0%   { opacity: 1; }
+  25%  { opacity: 0.3; }
+  50%  { opacity: 0.8; }
+  75%  { opacity: 0.4; }
+  100% { opacity: 0.6; }
+}
+
+/* --- Content & List --- */
+.cmd-palette__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: min(400px, 100%);
+  padding: var(--space-md);
+}
+
+.cmd-palette__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* --- Link styling --- */
+.cmd-palette__link {
+  display: block;
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-left: 4px solid transparent;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.01s steps(1), transform 0.01s steps(1);
+}
+
+/* Staggered hard-cut entrance */
+.cmd-palette.is-open .cmd-palette__link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cmd-palette.is-open li:nth-child(1) .cmd-palette__link { transition-delay: 100ms; }
+.cmd-palette.is-open li:nth-child(2) .cmd-palette__link { transition-delay: 160ms; }
+.cmd-palette.is-open li:nth-child(3) .cmd-palette__link { transition-delay: 220ms; }
+.cmd-palette.is-open li:nth-child(4) .cmd-palette__link { transition-delay: 280ms; }
+.cmd-palette.is-open li:nth-child(5) .cmd-palette__link { transition-delay: 340ms; }
+
+.cmd-palette__prompt {
+  color: var(--color-accent-green);
+}
+
+/* Active link */
+.cmd-palette__link.is-active {
+  color: var(--color-accent-coral);
+  border-left-color: var(--color-accent-coral);
+}
+
+.cmd-palette__link.is-active .cmd-palette__prompt {
+  color: var(--color-accent-coral);
+}
+
+/* Focus / hover */
+.cmd-palette__link:focus-visible {
+  outline: 2px solid var(--color-accent-green);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .cmd-palette__link:hover {
+    color: var(--color-accent-coral);
+    border-left-color: var(--color-accent-coral);
+  }
+}

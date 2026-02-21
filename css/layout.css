@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.section--dark {
+  background-color: var(--color-primary-bg);
+  color: var(--color-text-light);
+}
+
+.section--light {
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text-dark);
+}
+
+.section--coral {
+  background-color: var(--color-accent-coral);
+  color: var(--color-primary-bg);
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Angled section dividers */
+.section--dark + .section--light {
+  clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 100%);
+  margin-top: -3vw;
+  padding-top: calc(var(--space-xl) + 3vw);
+}
+
+.section--light + .section--dark {
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 100%);
+  margin-top: -3vw;
+  padding-top: calc(var(--space-xl) + 3vw);
+}

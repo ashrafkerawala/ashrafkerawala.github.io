@@ -1,0 +1,136 @@
+.about {
+  position: relative;
+}
+
+.about__heading {
+  font-size: var(--fs-section);
+  margin-left: max(-2rem, -2vw);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  display: inline-block;
+}
+
+.about__heading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 120%;
+  height: 6px;
+  background-color: var(--color-accent-coral);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.about__content {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: none;
+  border: var(--border-brutal);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-brutal);
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text-dark);
+  position: relative;
+}
+
+.about__content::before {
+  content: '';
+  position: absolute;
+  inset: 8px -8px -8px 8px;
+  border: 4px solid var(--color-accent-green);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.about__content p {
+  margin-bottom: var(--space-sm);
+}
+
+.about__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* About extra content — collapsible on mobile */
+.about__extra {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease;
+}
+
+.about__extra.is-expanded {
+  max-height: 600px;
+  opacity: 1;
+}
+
+/* "Read more" button — hidden by default, shown on mobile via responsive.css */
+.about__more-btn {
+  display: none;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--color-border);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-xs) 0;
+  margin-top: var(--space-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.about__more-btn:hover {
+  opacity: 0.7;
+}
+
+/* Desktop: always show full about content */
+@media (min-width: 769px) {
+  .about__extra {
+    max-height: none;
+    opacity: 1;
+    overflow: visible;
+    transition: none;
+  }
+}
+
+.about__stats {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.stat {
+  text-align: center;
+  padding: var(--space-md);
+  border: var(--border-thick);
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text-dark);
+  box-shadow: var(--shadow-brutal-sm);
+  min-width: 180px;
+}
+
+.stat__number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--color-accent-coral);
+  line-height: 1;
+}
+
+.stat__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: var(--space-xs);
+}

@@ -1,0 +1,188 @@
+/* Typewriter */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 49ch; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--color-accent-coral); }
+}
+
+/* Avatar Float */
+@keyframes avatar-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Glitch */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -2px); }
+  60% { transform: translate(-2px, -1px); }
+  80% { transform: translate(2px, 1px); }
+}
+
+@keyframes glitch-shift-1 {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(3px, -2px); }
+  50% { transform: translate(-2px, 1px); }
+  75% { transform: translate(1px, 2px); }
+}
+
+@keyframes glitch-shift-2 {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(3px, -1px); }
+  75% { transform: translate(-1px, -2px); }
+}
+
+/* Slide in from left */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade up */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Count up handled by JS — these are for scroll reveals */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+.reveal--left {
+  transform: translateX(-20px);
+}
+
+.reveal--left.is-visible {
+  transform: translateX(0);
+}
+
+.reveal--right {
+  transform: translateX(20px);
+}
+
+.reveal--right.is-visible {
+  transform: translateX(0);
+}
+
+/* Snap reveal — brutalist hard-cut entrance for section headings */
+.reveal--snap {
+  transition: opacity 0.01s steps(1);
+  transform: none;
+}
+
+.reveal--snap.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Will-change hints for animated elements */
+.hero__avatar {
+  will-change: transform;
+}
+
+.custom-cursor {
+  will-change: left, top;
+}
+
+.project-card {
+  will-change: opacity, transform;
+}
+
+.project-card.is-visible {
+  will-change: auto;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero__typewriter {
+    width: 100%;
+    border-right: none;
+  }
+
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--snap,
+  .skill,
+  .timeline__item,
+  .project-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .timeline__line {
+    clip-path: none;
+  }
+
+  .hero__avatar {
+    animation: none;
+  }
+
+  .custom-cursor {
+    display: none;
+  }
+
+  .hero__name.is-glitching {
+    animation: none;
+  }
+
+  .hero__name.is-glitching::before,
+  .hero__name.is-glitching::after {
+    content: none;
+  }
+
+  /* Command palette — instant show/hide, no animations */
+  .cmd-palette { transition: none !important; transform: none; opacity: 0; visibility: hidden; }
+  .cmd-palette.is-open { opacity: 1; visibility: visible; }
+  .cmd-palette__link { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .cmd-palette__scanlines { display: none; }
+}
