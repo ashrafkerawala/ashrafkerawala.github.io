@@ -83,7 +83,7 @@
       // Ease out cubic
       var eased = 1 - Math.pow(1 - progress, 3);
       var current = Math.round(eased * target);
-      el.textContent = current + '+';
+      el.textContent = current + (el.getAttribute('data-no-plus') ? '' : '+');
 
       if (progress < 1) {
         rafId = requestAnimationFrame(update);

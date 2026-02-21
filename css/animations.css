@@ -9,6 +9,28 @@
   50% { border-color: var(--color-accent-coral); }
 }
 
+/* Glasses nav icon — organic multi-axis float */
+@keyframes glasses-float {
+  0%,  100% { transform: translateY(0px)   rotate(-3deg)   scale(1);    }
+  20%        { transform: translateY(-5px)  rotate(2deg)    scale(1.03); }
+  40%        { transform: translateY(-2px)  rotate(-1.5deg) scale(1.01); }
+  60%        { transform: translateY(-6px)  rotate(3.5deg)  scale(1.02); }
+  80%        { transform: translateY(-1px)  rotate(-2deg)   scale(0.99); }
+}
+
+/* Lens fill opacity breathe — lenses glow in and out */
+@keyframes glasses-breathe {
+  0%, 100% { opacity: 0.07; }
+  50%       { opacity: 0.2;  }
+}
+
+/* Glint sweep — diagonal highlight fires every 7s, then long silence */
+@keyframes glasses-glint {
+  0%, 12%, 100% { opacity: 0; transform: translate(0px,  0px); }
+  14%            { opacity: 0.9; transform: translate(1px,  1px); }
+  18%            { opacity: 0; transform: translate(9px,  9px); }
+}
+
 /* Avatar Float */
 @keyframes avatar-float {
   0%, 100% { transform: translateY(0); }
@@ -164,6 +186,13 @@
   }
 
   .hero__avatar {
+    animation: none;
+  }
+
+  .nav__glasses,
+  .nav__lens-fill,
+  .nav__glint--l,
+  .nav__glint--r {
     animation: none;
   }
 
